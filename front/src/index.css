@@ -1,29 +1,57 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-body {
+body{
   margin: 0;
+  background-color: whitesmoke;
+}
+
+.content{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.header, .footer{
+  padding: 1rem;
+  color:white;
+  background-color: black;
+  text-align: center;
 }
 
+.main{
+  display: flex;
+  flex: 1;
+}
+
+.left{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.left > div{
+  border: 1px solid white;
+  flex: 1;
+}
+
+.right{
+  flex: 1;
+  display: flex;
+}
+
+.card-stack{
+  height: 280px;
+  width: 200px;
+  position: relative;
+}
+
+.card-stack > .card{
+  background-color: white;
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+.card-stack .card:nth-child(1){ z-index: 1; top:0px ; right: 0px; background-color: blue}
+.card-stack .card:nth-child(2){z-index: 2 ; top: 20px; right: 10px;  background-color: red}
+.card-stack .card:nth-child(3){z-index: 3; top: 40px; right: 20px;  background-color: green}

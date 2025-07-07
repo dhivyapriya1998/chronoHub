@@ -1,0 +1,27 @@
+# Node modules (both front and back)
+front/node_modules/
+back/node_modules/
+
+# Dependency lock files (optional)
+front/package-lock.json
+back/package-lock.json
+
+# Environment variables
+front/.env
+back/.env
+
+# Build output
+front/dist/
+front/build/
+back/dist/
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Coverage / test output
+coverage/
