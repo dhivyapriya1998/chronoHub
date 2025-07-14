@@ -1,0 +1,54 @@
+
+
+services:
+
+  ##################################################
+  ########### Databases installation ################
+  ##################################################
+  
+  mysql: 
+    image: mysql:8.0.33
+    restart : "always"
+    platform: linux/amd64
+    environment:
+      MYSQL_DATABASE: 'applause-vantage'
+      MYSQL_USER: 'applause'
+      MYSQL_PASSWORD: 'applause'
+      MYSQL_ROOT_PASSWORD: 'applause'
+
+    ports:
+      - '3306:3306'
+
+    expose: 
+      - '3306' 
+      
+    healthcheck:
+      test: [ "CMD", "/usr/bin/mysql", "--user=applause",  "--password=applause", "--execute", "SHOW DATABASES;" ]
+
+  front:
+    build: 
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front:/app/front  
+  
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./back:/app/back
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin   

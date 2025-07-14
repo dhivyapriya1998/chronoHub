@@ -1,5 +1,18 @@
 {
-  "name": "chronohub",
-  "version": "0.1.0",
-  "private": true
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.5.0",
+    "fs": "^0.0.1-security",
+    "googleapis": "^150.0.1",
+    "open": "^10.1.2",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "eslint-plugin-jsdoc": "^51.3.3",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.1.0"
+  }
 }
